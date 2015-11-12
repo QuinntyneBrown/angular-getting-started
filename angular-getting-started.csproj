@@ -66,14 +66,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dist\app.js" />
+    <Content Include="gulpfile.config.js" />
+    <Content Include="gulpfile.js" />
     <Content Include="index.html" />
     <Content Include="node_modules\angular-route\angular-route.js" />
     <Content Include="node_modules\angular\angular.js" />
     <Content Include="node_modules\jquery\dist\jquery.js" />
     <Content Include="node_modules\ng-x-components\dist\ngX.components.js" />
     <Content Include="node_modules\ng-x\dist\ngX.js" />
+    <Content Include="src\app\app.module.js" />
     <Content Include="src\app\components\about.component.html" />
+    <Content Include="src\app\components\about.component.js" />
+    <Content Include="src\app\components\header.component.js" />
     <Content Include="src\app\components\home.component.html" />
+    <Content Include="src\app\components\home.component.js" />
+    <Content Include="src\app\components\login.component.html" />
+    <Content Include="src\app\components\login.component.js" />
+    <Content Include="src\site.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

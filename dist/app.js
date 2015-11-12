@@ -1,16 +1,35 @@
 angular.module("app", ["ngX.components"]).config(["$routeProvider", function ($routeProvider) {
 
     $routeProvider.when("/", {
-        componentName: "homeComponent"
+        componentName: "homeComponent",
+        authorizationRequired: true
     });
 
     $routeProvider.when("/about", {
-        componentName: "aboutComponent"
+        componentName: "aboutComponent",
+        authorizationRequired: true
     });
-}]);
-(function () {
 
-    "use strict";
+    $routeProvider.when("/login", {
+        componentName: "loginComponent",
+        authorizationRequired: false
+    });
+}]).run(["$location", "$rootScope", function ($location, $rootScope) {
+
+    $rootScope.$on("$routeChangeStart", function (c, n) {
+
+        if (n.authorizationRequired && !window.token) {
+            $location.path("/login");
+        }
+
+        if ($location.path() === "/login") {
+            window.token = null;
+        }        
+    });
+
+}]);
+
+
 
     function AboutComponent() {
     }
@@ -19,21 +38,33 @@ angular.module("app", ["ngX.components"]).config(["$routeProvider", function ($r
         component: AboutComponent
     });
 
-})();
 
+
+
+function HeaderComponent() {
+
+    var self = this;
+
+
+    self.isLoggedIn = function () {
+        return (window.token != null);
+    }
+
+    return self;
+}
 
 ngX.Component({
     selector: "app-header",
+    component: HeaderComponent,
     template: [
         "<div>",
-        "<a href='#/'>Home</a>",
-        "<a href='#/about'>About</a>",
+        "<a data-ng-if='vm.isLoggedIn()' href='#/'>Home</a>",
+        "<a data-ng-if='vm.isLoggedIn()' href='#/about'>About</a>",
+        "<a data-ng-if='vm.isLoggedIn()' href='#/login'>Logout</a>",
         "</div>"
     ].join(" ")
 })
-(function () {
 
-    "use strict";
 
     function HomeComponent() {
 
@@ -43,4 +74,20 @@ ngX.Component({
         component: HomeComponent
     });
 
-})();
+
+
+function LoginComponent($location) {
+
+    var self = this;
+
+    self.login = function () {
+        window.token = true;
+        $location.path("/");
+    }
+    return self;
+}
+
+ngX.Component({
+    component: LoginComponent,
+    providers: ["$location"]
+});

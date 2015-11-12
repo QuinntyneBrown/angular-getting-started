@@ -1,6 +1,5 @@
-﻿(function () {
+﻿
 
-    "use strict";
 
     function AboutComponent() {
     }
@@ -9,5 +8,4 @@
         component: AboutComponent
     });
 
-})();
 
