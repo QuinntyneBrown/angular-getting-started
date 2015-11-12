@@ -1,0 +1,31 @@
+{
+  "name": "angular-getting-started",
+  "version": "0.0.1",
+  "description": "Getting started with Angular 1.x",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/QuinntyneBrown/angular-getting-started.git"
+  },
+  "author": "quinntynebrown@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/QuinntyneBrown/angular-getting-started/issues"
+  },
+  "homepage": "https://github.com/QuinntyneBrown/angular-getting-started#readme",
+  "dependencies": {
+    "angular": "^1.4.7",
+    "angular-route": "^1.4.7",
+    "jquery": "^2.1.4",
+    "ng-x": "^0.3.42",
+    "ng-x-components": "0.0.5"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-watch": "^4.3.5"
+  }
+}
