@@ -8,14 +8,20 @@ angular.module("app", ["ngX.components"]).config(["$routeProvider", function ($r
         componentName: "aboutComponent"
     });
 }]);
-function AboutComponent() {
+(function () {
+
+    "use strict";
+
+    function AboutComponent() {
+    }
+
+    ngX.Component({
+        component: AboutComponent
+    });
+
+})();
 
 
-}
-
-ngX.Component({
-    component: AboutComponent
-});
 ngX.Component({
     selector: "app-header",
     template: [
@@ -25,11 +31,16 @@ ngX.Component({
         "</div>"
     ].join(" ")
 })
-function HomeComponent() {
+(function () {
 
+    "use strict";
 
-}
+    function HomeComponent() {
 
-ngX.Component({
-    component: AboutComponent
-});
+    }
+
+    ngX.Component({
+        component: HomeComponent
+    });
+
+})();

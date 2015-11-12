@@ -1,8 +1,13 @@
-﻿function HomeComponent() {
+﻿(function () {
 
+    "use strict";
 
-}
+    function HomeComponent() {
 
-ngX.Component({
-    component: AboutComponent
-});
+    }
+
+    ngX.Component({
+        component: HomeComponent
+    });
+
+})();
