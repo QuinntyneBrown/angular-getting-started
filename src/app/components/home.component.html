@@ -2,5 +2,14 @@
 
     <h1>Home</h1>
     
-    <youtube video-id="'VdxTkx4qnKg'"></youtube>
+    <rotator id="featured-videos"
+             items="vm.videos"
+             rotator-for-name="video"
+             next-button-image-url="'../../assets/images/rotator_button_next.png'"
+             previous-button-image-url="'../../assets/images/rotator_button_prev.png'"
+             query-search-field="name"
+             width="640"
+             content-url="/src/app/templates/template.html">
+    </rotator>
+    
 </div>
