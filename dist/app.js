@@ -16,6 +16,8 @@ angular.module("app", ["ngX.components"]).config(["$routeProvider", function ($r
     });
 }]).run(["$location", "$rootScope", function ($location, $rootScope) {
 
+    $rootScope.title = "Getting Started";
+
     $rootScope.$on("$routeChangeStart", function (c, n) {
 
         if (n.authorizationRequired && !window.token) {
@@ -32,11 +34,14 @@ angular.module("app", ["ngX.components"]).config(["$routeProvider", function ($r
 
     "use strict";
 
-    function AboutComponent() {
+    function AboutComponent($rootScope) {
+        $rootScope.title = "About";
+
     }
 
     ngX.Component({
-        component: AboutComponent
+        component: AboutComponent,
+        providers: ["$rootScope"]
     });
 
 })();

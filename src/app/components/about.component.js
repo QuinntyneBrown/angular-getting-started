@@ -2,11 +2,14 @@
 
     "use strict";
 
-    function AboutComponent() {
+    function AboutComponent($rootScope) {
+        $rootScope.title = "About";
+
     }
 
     ngX.Component({
-        component: AboutComponent
+        component: AboutComponent,
+        providers: ["$rootScope"]
     });
 
 })();
