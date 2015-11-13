@@ -1,17 +1,9 @@
 ﻿
 
-function LoginComponent($location) {
+function LoginComponent() {
 
-    var self = this;
-
-    self.login = function () {
-        window.token = true;
-        $location.path("/");
-    }
-    return self;
 }
 
 ngX.Component({
-    component: LoginComponent,
-    providers: ["$location"]
+    component: LoginComponent    
 });
