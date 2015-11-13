@@ -94,7 +94,7 @@ angular.module("app", ["ngX.components"]).config(["$routeProvider", function ($r
             },
             {
                 id: '4YmnbGoh49U',
-                name: 'sngulsr_2_better_concepts_less_code'
+                name: 'angulsr_2_better_concepts_less_code'
             }
         ];
 

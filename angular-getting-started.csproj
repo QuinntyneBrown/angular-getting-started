@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -65,6 +66,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\rotator_button_next.png" />
+    <Content Include="assets\images\rotator_button_prev.png" />
     <Content Include="dist\app.js" />
     <Content Include="gulpfile.config.js" />
     <Content Include="gulpfile.js" />
@@ -72,7 +75,6 @@
     <Content Include="node_modules\angular-route\angular-route.js" />
     <Content Include="node_modules\angular\angular.js" />
     <Content Include="node_modules\jquery\dist\jquery.js" />
-    <Content Include="node_modules\ng-x-components\dist\ngX.components.js" />
     <Content Include="node_modules\ng-x\dist\ngX.js" />
     <Content Include="src\app\app.module.js" />
     <Content Include="src\app\components\about.component.html" />
@@ -83,6 +85,7 @@
     <Content Include="src\app\components\login.component.html" />
     <Content Include="src\app\components\login.component.js" />
     <Content Include="src\app\components\loginForm.component.js" />
+    <Content Include="src\app\templates\template.html" />
     <Content Include="src\site.css" />
     <Content Include="Web.config" />
   </ItemGroup>
