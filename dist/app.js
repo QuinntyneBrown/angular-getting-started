@@ -28,8 +28,9 @@ angular.module("app", ["ngX.components"]).config(["$routeProvider", function ($r
     });
 
 }]);
+(function() {
 
-
+    "use strict";
 
     function AboutComponent() {
     }
@@ -38,33 +39,46 @@ angular.module("app", ["ngX.components"]).config(["$routeProvider", function ($r
         component: AboutComponent
     });
 
+})();
 
 
 
-function HeaderComponent() {
-
-    var self = this;
 
 
-    self.isLoggedIn = function () {
-        return (window.token != null);
+
+(function () {
+
+    "use strict";
+
+    function HeaderComponent() {
+
+        var self = this;
+
+        self.isLoggedIn = function () {
+            return (window.token != null);
+        }
+
+        return self;
     }
 
-    return self;
-}
+    ngX.Component({
+        selector: "app-header",
+        component: HeaderComponent,
+        template: [
+            "<div>",
+            "<a data-ng-if='vm.isLoggedIn()' href='#/'>Home</a>",
+            "<a data-ng-if='vm.isLoggedIn()' href='#/about'>About</a>",
+            "<a data-ng-if='vm.isLoggedIn()' href='#/login'>Logout</a>",
+            "</div>"
+        ].join(" ")
+    });
 
-ngX.Component({
-    selector: "app-header",
-    component: HeaderComponent,
-    template: [
-        "<div>",
-        "<a data-ng-if='vm.isLoggedIn()' href='#/'>Home</a>",
-        "<a data-ng-if='vm.isLoggedIn()' href='#/about'>About</a>",
-        "<a data-ng-if='vm.isLoggedIn()' href='#/login'>Logout</a>",
-        "</div>"
-    ].join(" ")
-})
+})();
 
+
+(function () {
+
+    "use strict";
 
     function HomeComponent() {
 
@@ -74,47 +88,66 @@ ngX.Component({
         component: HomeComponent
     });
 
+})();
 
 
-function LoginComponent() {
 
-}
+(function() {
+    
+    "use strict";
 
-ngX.Component({
-    component: LoginComponent    
-});
+    function LoginComponent() {
 
-function LoginFormComponent($location) {
-    var self = this;
-
-    self.username = "";
-
-    self.password = "";
-
-    self.tryToLogin = function () {
-        window.token = true;
-        $location.path("/");
     }
-    return self;
-}
 
-ngX.Component({
-    selector: "login-form",
-    component: LoginFormComponent,
-    providers: ["$location"],
-    styles: [" .login-form div {  padding-bottom: 15px; } "].join(" /n "),
-    template: [
-        "<form class='login-form'> ",
-        "    <div> ",
-        "        <input type='text' placeholder='Username' data-ng-model='vm.username' /> ",
-        "    </div> ",
-        "    <div> ",
-        "        <input type='password' placeholder='Password' data-ng-model='vm.username' /> ",
-        "    </div> ",
-        "    <div> ",
-        "        <button data-ng-click='vm.tryToLogin()' >Login</button> ",
-        "    </div> ",
-        "</form> "
-    ].join(" ")
-});
+    ngX.Component({
+        component: LoginComponent
+    });
+
+})();
+
+
+
+(function () {
+
+    "use strict";
+
+    function LoginFormComponent($location) {
+        var self = this;
+
+        self.username = "";
+
+        self.password = "";
+
+        self.tryToLogin = function () {
+            window.token = true;
+            $location.path("/");
+        }
+        return self;
+    }
+
+    ngX.Component({
+        selector: "login-form",
+        component: LoginFormComponent,
+        providers: ["$location"],
+        styles: [" .login-form div {  padding-bottom: 15px; } "].join(" /n "),
+        template: [
+            "<form class='login-form'> ",
+            "    <div> ",
+            "        <input type='text' placeholder='Username' data-ng-model='vm.username' /> ",
+            "    </div> ",
+            "    <div> ",
+            "        <input type='password' placeholder='Password' data-ng-model='vm.username' /> ",
+            "    </div> ",
+            "    <div> ",
+            "        <button data-ng-click='vm.tryToLogin()' >Login</button> ",
+            "    </div> ",
+            "</form> "
+        ].join(" ")
+    });
+
+})();
+
+
+
 

@@ -1,24 +1,29 @@
-﻿
-function HeaderComponent() {
+﻿(function () {
 
-    var self = this;
+    "use strict";
 
+    function HeaderComponent() {
 
-    self.isLoggedIn = function () {
-        return (window.token != null);
+        var self = this;
+
+        self.isLoggedIn = function () {
+            return (window.token != null);
+        }
+
+        return self;
     }
 
-    return self;
-}
+    ngX.Component({
+        selector: "app-header",
+        component: HeaderComponent,
+        template: [
+            "<div>",
+            "<a data-ng-if='vm.isLoggedIn()' href='#/'>Home</a>",
+            "<a data-ng-if='vm.isLoggedIn()' href='#/about'>About</a>",
+            "<a data-ng-if='vm.isLoggedIn()' href='#/login'>Logout</a>",
+            "</div>"
+        ].join(" ")
+    });
 
-ngX.Component({
-    selector: "app-header",
-    component: HeaderComponent,
-    template: [
-        "<div>",
-        "<a data-ng-if='vm.isLoggedIn()' href='#/'>Home</a>",
-        "<a data-ng-if='vm.isLoggedIn()' href='#/about'>About</a>",
-        "<a data-ng-if='vm.isLoggedIn()' href='#/login'>Logout</a>",
-        "</div>"
-    ].join(" ")
-})
+})();
+

@@ -1,9 +1,15 @@
-﻿
+﻿(function() {
+    
+    "use strict";
 
-function LoginComponent() {
+    function LoginComponent() {
 
-}
+    }
 
-ngX.Component({
-    component: LoginComponent    
-});
+    ngX.Component({
+        component: LoginComponent
+    });
+
+})();
+
+
