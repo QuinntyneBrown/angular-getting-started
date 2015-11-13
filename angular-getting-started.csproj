@@ -82,6 +82,7 @@
     <Content Include="src\app\components\home.component.js" />
     <Content Include="src\app\components\login.component.html" />
     <Content Include="src\app\components\login.component.js" />
+    <Content Include="src\app\components\loginForm.component.js" />
     <Content Include="src\site.css" />
     <Content Include="Web.config" />
   </ItemGroup>
