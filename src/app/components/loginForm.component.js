@@ -2,7 +2,7 @@
 
     "use strict";
 
-    function LoginFormComponent($location) {
+    function LoginFormComponent($location, securityManager) {
         var self = this;
 
         self.username = "";
@@ -10,7 +10,7 @@
         self.password = "";
 
         self.tryToLogin = function () {
-            window.token = true;
+            securityManager.token = true;
             $location.path("/");
         }
         return self;
@@ -19,7 +19,7 @@
     ngX.Component({
         selector: "login-form",
         component: LoginFormComponent,
-        providers: ["$location"],
+        providers: ["$location","securityManager"],
         styles: [" .login-form div {  padding-bottom: 15px; } "].join(" /n "),
         template: [
             "<form class='login-form'> ",

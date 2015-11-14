@@ -14,16 +14,16 @@
         componentName: "loginComponent",
         authorizationRequired: false
     });
-}]).run(["$location", "$rootScope", function ($location, $rootScope) {
+}]).run(["$location", "$rootScope", "securityManager", function ($location, $rootScope, securityManager) {
 
     $rootScope.$on("$routeChangeStart", function (c, n) {
 
-        if (n.authorizationRequired && !window.token) {
+        if (n.authorizationRequired && !securityManager.token) {
             $location.path("/login");
         }
 
         if ($location.path() === "/login") {
-            window.token = null;
+            securityManager.token = null;
         }        
     });
 

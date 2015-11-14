@@ -14,16 +14,16 @@ angular.module("app", ["ngX.components"]).config(["$routeProvider", function ($r
         componentName: "loginComponent",
         authorizationRequired: false
     });
-}]).run(["$location", "$rootScope", function ($location, $rootScope) {
+}]).run(["$location", "$rootScope", "securityManager", function ($location, $rootScope, securityManager) {
 
     $rootScope.$on("$routeChangeStart", function (c, n) {
 
-        if (n.authorizationRequired && !window.token) {
+        if (n.authorizationRequired && !securityManager.token) {
             $location.path("/login");
         }
 
         if ($location.path() === "/login") {
-            window.token = null;
+            securityManager.token = null;
         }        
     });
 
@@ -50,12 +50,12 @@ angular.module("app", ["ngX.components"]).config(["$routeProvider", function ($r
 
     "use strict";
 
-    function HeaderComponent() {
+    function HeaderComponent(securityManager) {
 
         var self = this;
 
         self.isLoggedIn = function () {
-            return (window.token != null);
+            return (securityManager.token != null);
         }
 
         return self;
@@ -64,6 +64,7 @@ angular.module("app", ["ngX.components"]).config(["$routeProvider", function ($r
     ngX.Component({
         selector: "app-header",
         component: HeaderComponent,
+        providers:["securityManager"],
         template: [
             "<div>",
             "<a data-ng-if='vm.isLoggedIn()' href='#/'>Home</a>",
@@ -130,7 +131,7 @@ angular.module("app", ["ngX.components"]).config(["$routeProvider", function ($r
 
     "use strict";
 
-    function LoginFormComponent($location) {
+    function LoginFormComponent($location, securityManager) {
         var self = this;
 
         self.username = "";
@@ -138,7 +139,7 @@ angular.module("app", ["ngX.components"]).config(["$routeProvider", function ($r
         self.password = "";
 
         self.tryToLogin = function () {
-            window.token = true;
+            securityManager.token = true;
             $location.path("/");
         }
         return self;
@@ -147,7 +148,7 @@ angular.module("app", ["ngX.components"]).config(["$routeProvider", function ($r
     ngX.Component({
         selector: "login-form",
         component: LoginFormComponent,
-        providers: ["$location"],
+        providers: ["$location","securityManager"],
         styles: [" .login-form div {  padding-bottom: 15px; } "].join(" /n "),
         template: [
             "<form class='login-form'> ",
