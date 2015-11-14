@@ -1,0 +1,23 @@
+﻿[
+  {
+    "when": "/",
+    "config": {
+      "componentName": "homeComponent",
+      "authorizationRequired": "true"
+    }
+  },
+  {
+    "when": "/about",
+    "config": {
+      "componentName": "aboutComponent",
+      "authorizationRequired": "true"
+    }
+  },
+  {
+    "when": "/login",
+    "config": {
+      "componentName": "loginComponent",
+      "authorizationRequired": "false"
+    }
+  }
+]

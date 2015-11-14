@@ -17,6 +17,9 @@
             {
                 id: '4YmnbGoh49U',
                 name: 'angulsr_2_better_concepts_less_code'
+            }, {
+                id: "zoVebZX49rc",
+                name: "Using Hypermedia APIs to Drive Interactive Mobile Applications"
             }
         ];
 

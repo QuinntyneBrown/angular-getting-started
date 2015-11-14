@@ -1,19 +1,27 @@
 ﻿angular.module("app", ["ngX.components"]).config(["$routeProvider", function ($routeProvider) {
 
-    $routeProvider.when("/", {
-        componentName: "homeComponent",
-        authorizationRequired: true
-    });
+    var routes = JSON.parse(ngX.getFromUrlSync({ url: "routes.json " }));
 
-    $routeProvider.when("/about", {
-        componentName: "aboutComponent",
-        authorizationRequired: true
-    });
+    for (var i = 0; i < routes.length; i++) {
+        $routeProvider.when(routes[i].when, routes[i].config);
+    }
 
-    $routeProvider.when("/login", {
-        componentName: "loginComponent",
-        authorizationRequired: false
-    });
+    //var routes = ngX.getFromUrlSync({ url: "routes.json " });
+
+    //$routeProvider.when("/", {
+    //    componentName: "homeComponent",
+    //    authorizationRequired: true
+    //});
+
+    //$routeProvider.when("/about", {
+    //    componentName: "aboutComponent",
+    //    authorizationRequired: true
+    //});
+
+    //$routeProvider.when("/login", {
+    //    componentName: "loginComponent",
+    //    authorizationRequired: false
+    //});
 }]).run(["$location", "$rootScope", "securityManager", function ($location, $rootScope, securityManager) {
 
     $rootScope.title = "Getting Started";
