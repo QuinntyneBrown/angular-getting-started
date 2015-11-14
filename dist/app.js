@@ -53,6 +53,29 @@ angular.module("app", ["ngX.components"]).config(["$routeProvider", function ($r
 
     "use strict";
 
+    function AppComponent() {
+        var self = this;
+        return self;
+    }
+
+    ngX.Component({
+        selector: "app",
+        component: AppComponent,
+        template: [
+            "<div>",
+            "<app-header></app-header>",
+            "<div data-ng-view=''></div>",
+            "</div>"
+        ].join(" ")
+    });
+
+})();
+
+
+(function () {
+
+    "use strict";
+
     function HeaderComponent(securityManager) {
 
         var self = this;

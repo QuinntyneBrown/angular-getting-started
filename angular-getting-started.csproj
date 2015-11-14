@@ -58,6 +58,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="src\app\components\app.component.js" />
     <Content Include="videos.json" />
     <Content Include="routes.json" />
     <None Include="Web.Debug.config">
