@@ -16,6 +16,8 @@
     });
 }]).run(["$location", "$rootScope", "securityManager", function ($location, $rootScope, securityManager) {
 
+    $rootScope.title = "Getting Started";
+
     $rootScope.$on("$routeChangeStart", function (c, n) {
 
         if (n.authorizationRequired && !securityManager.token) {
