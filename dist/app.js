@@ -18,16 +18,6 @@ angular.module("app", ["ngX.components"]).config(["$routeProvider", function ($r
 
     $rootScope.title = "Getting Started";
 
-    $rootScope.$on("$routeChangeStart", function (c, n) {
-
-        if (n.authorizationRequired && !securityManager.token) {
-            $location.path("/login");
-        }
-
-        if ($location.path() === "/login") {
-            securityManager.token = null;
-        }        
-    });
 
 }]);
 (function() {
